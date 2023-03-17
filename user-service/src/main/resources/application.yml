@@ -1,0 +1,28 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: user-service
+    url:
+      user: /public/api/v1/users/
+      image: /public/api/v1/images/
+      friend-request: /public/api/v1/users/{userId}/friend-requests/
+      friendship: /public/api/v1/users/{userId}/friendships/
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:32768/user
+    username: postgres
+    password: postgrespw
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
