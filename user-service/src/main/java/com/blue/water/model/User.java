@@ -48,12 +48,12 @@ public class User {
         images.remove(image);
     }
 
-    public void addFriendship(Image image) {
-        images.add(image);
-        image.setUser(this);
+    public void addFriendship(Friendship friendship) {
+        friendships.add(friendship);
+        friendship.setUser(this);
     }
 
-    public void removeFriendShip(Friendship friendship) {
+    public void removeFriendship(Friendship friendship) {
         friendships.remove(friendship);
     }
 
@@ -64,9 +64,5 @@ public class User {
 
     public void removeFriendRequest(FriendRequest friendRequest) {
         friendRequests.remove(friendRequest);
-    }
-
-    public void removeAllImages() {
-        images.clear();
     }
 }
