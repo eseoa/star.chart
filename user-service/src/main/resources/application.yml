@@ -2,6 +2,7 @@ server:
   port: 8000
 
 spring:
+
   application:
     name: user-service
     url:
@@ -10,6 +11,8 @@ spring:
       friend-request: /public/api/v1/users/{userId}/friend-requests/
       friendship: /public/api/v1/users/{userId}/friendships/
 
+  flyway:
+    enabled: false
 
   datasource:
     url: jdbc:postgresql://localhost:32768/user
