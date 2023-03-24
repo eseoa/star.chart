@@ -3,9 +3,7 @@ package com.blue.water.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 @Table(name = "users")
 @Entity
@@ -30,14 +28,17 @@ public class User {
 
     private String lastName;
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Image> images = new HashSet<>();
+    private List<Image> images = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<FriendRequest> friendRequests = new HashSet<>();
+    private List<FriendRequest> friendRequests = new ArrayList<>();
 
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<Friendship> friendships = new HashSet<>();
+    private List<Friendship> friendships = new ArrayList<>();
 
     public void addImage(Image image) {
         images.add(image);
