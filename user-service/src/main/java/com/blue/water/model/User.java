@@ -20,8 +20,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "users_sequence")
     private Long id;
 
-    private UUID externalId;
-
     private String email;
 
     private String firstName;
