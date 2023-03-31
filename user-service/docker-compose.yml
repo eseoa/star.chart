@@ -4,7 +4,7 @@ services:
   user-service:
     container_name: user-service
     build:
-      dockerfile: user-service/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:
@@ -20,5 +20,19 @@ services:
       POSTGRES_PASSWORD: password
     ports:
       - "5432:5432"
-    expose:
-      - "5432"
+
+  pgadmin:
+    container_name: pgadmin-ui
+    image: dpage/pgadmin4:6.17
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - ./pgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+
+volumes:
+  pgdata:
+  pgadmin:
+
