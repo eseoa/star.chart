@@ -15,9 +15,9 @@ spring:
     enabled: false
 
   datasource:
-    url: jdbc:postgresql://localhost:32768/user
+    url: jdbc:postgresql://localhost:5433/postgres
     username: postgres
-    password: postgrespw
+    password: password
     driver-class-name: org.postgresql.Driver
 
   jpa:
