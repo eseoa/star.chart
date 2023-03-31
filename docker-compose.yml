@@ -3,7 +3,12 @@ services:
 
   user-service:
     container_name: user-service
-    image:
+    build:
+      dockerfile: user-service/Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
 
   postgres:
     container_name: user-stargres
