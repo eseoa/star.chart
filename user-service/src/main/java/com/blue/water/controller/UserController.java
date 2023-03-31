@@ -1,5 +1,6 @@
 package com.blue.water.controller;
 
+import com.blue.water.StringLiterals;
 import com.blue.water.dto.request.UserCreateRequest;
 import com.blue.water.dto.request.UserUpdateRequest;
 import com.blue.water.dto.response.ErrorResponse;
@@ -25,7 +26,7 @@ import org.springframework.web.bind.annotation.*;
                      responseCode = "400",
                      description = "Incorrect data was transmitted to the server",
                      content = @Content(
-                                        mediaType = "application/json",
+                                        mediaType = StringLiterals.MediaTypes.APPLICATION_JSON,
                                         schema = @Schema(implementation = ErrorResponse.class)
                      )
         ),
@@ -33,7 +34,7 @@ import org.springframework.web.bind.annotation.*;
                      responseCode = "404",
                      description = "User not found",
                      content = @Content(
-                                   mediaType = "application/json",
+                                   mediaType = "MEDIA_TYPE_APP_JSON",
                                    schema = @Schema(implementation = ErrorResponse.class)
                 )
         )}
@@ -46,9 +47,9 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(operationId = "createUser", summary = "Creating a new user")
     @ApiResponse(
-                 responseCode = "201",
+                 responseCode = StringLiterals.ResponseCodes.CREATED,
                  description = "The user has been successfully created",
-                 content = @Content(mediaType = "application/json")
+                 content = @Content(mediaType = StringLiterals.MediaTypes.APPLICATION_JSON)
     )
     public Long create(
                        @RequestBody
@@ -62,9 +63,9 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(operationId = "getUserById", summary = "Getting a user by id")
     @ApiResponse(
-                 responseCode = "201",
+                 responseCode = StringLiterals.ResponseCodes.CREATED,
                  description = "The user has been successfully received",
-                 content = @Content(mediaType = "application/json")
+                 content = @Content(mediaType = StringLiterals.MediaTypes.APPLICATION_JSON)
     )
     public UserResponse getById(
                                 @PathVariable
@@ -78,9 +79,9 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(operationId = "updateUserById", summary = "Updating a user by id")
     @ApiResponse(
-                 responseCode = "201",
+                 responseCode = StringLiterals.ResponseCodes.CREATED,
                  description = "The user has been successfully updated",
-                 content = @Content(mediaType = "application/json")
+                 content = @Content(mediaType = StringLiterals.MediaTypes.APPLICATION_JSON)
     )
     public UserResponse updateById(
                                    @PathVariable
@@ -97,9 +98,9 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @Operation(operationId = "deleteUserById", summary = "Deleting a user by id")
     @ApiResponse(
-                 responseCode = "201",
+                 responseCode = StringLiterals.ResponseCodes.CREATED,
                  description = "The user has been successfully deleted",
-                 content = @Content(mediaType = "application/json")
+                 content = @Content(mediaType = StringLiterals.MediaTypes.APPLICATION_JSON)
     )
     public void deleteById(
                            @PathVariable
