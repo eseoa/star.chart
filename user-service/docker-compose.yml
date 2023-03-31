@@ -3,23 +3,20 @@ services:
 
   user-service:
     container_name: user-service
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/users
+      SPRING_DATASOURCE_USERNAME: admin
+      SPRING_DATASOURCE_PASSWORD: admin
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create
+
     build:
       dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:
       - postgres
+      - pgadmin
 
-  postgres:
-    container_name: user-stargres
-    image: postgres:latest
-    restart: always
-    environment:
-      POSTGRES_DB: postgres
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: password
-    ports:
-      - "5432:5432"
 
   pgadmin:
     container_name: pgadmin-ui
@@ -31,8 +28,20 @@ services:
       - ./pgadmin:/var/lib/pgadmin
     ports:
       - "5050:80"
+    depends_on:
+      - postgres
 
-volumes:
-  pgdata:
-  pgadmin:
+
+  postgres:
+    container_name: user-stargres
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_DB: users
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432"
+#    volumes:
+#      - ./sql/startup.sql:/docker-entrypoint-initdb.d/startup.sql
 
