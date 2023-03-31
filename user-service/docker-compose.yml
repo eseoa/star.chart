@@ -2,7 +2,7 @@ version: "3.9"
 services:
 
   user-service:
-    container_name: user-service
+    container_name: users-api
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/users
       SPRING_DATASOURCE_USERNAME: admin
@@ -19,7 +19,7 @@ services:
 
 
   pgadmin:
-    container_name: pgadmin-ui
+    container_name: users-pgadmin
     image: dpage/pgadmin4:6.17
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@gmail.com
@@ -33,7 +33,7 @@ services:
 
 
   postgres:
-    container_name: user-stargres
+    container_name: users-db
     image: postgres:latest
     restart: always
     environment:

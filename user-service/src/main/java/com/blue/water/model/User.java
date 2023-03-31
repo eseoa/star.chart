@@ -22,6 +22,7 @@ public class User {
 
     private UUID externalId;
 
+    @Column(unique = true)
     private String email;
 
     private String firstName;

@@ -2,22 +2,6 @@
 plugins {
     id 'pmd'
     id 'java'
-    id 'org.openapi.generator' version '6.2.1'
-    id 'org.springframework.boot' version '3.0.4'
-    id 'io.spring.dependency-management' version '1.1.0'
-}
-
-ext {
-    set('swaggerVersion', '2.2.7')
-    set('mockitoInlineVersion', '4.10.0')
-    set('apacheCommonsLangVersion', '3.12.0')
-    set('jetbrainsAnnotationsVersion', '23.1.0')
-    set('openapitoolsJacksonDatabindVersion', '0.2.4')
-    set('apacheCommonsValidator', '1.7')
-    set("springCloudConfigVersion", "2022.0.1")
-    set("mapstructVersion", "1.5.3.Final")
-    set("h2databaseVersion", "2.1.214")
-    set("openApiUiVersion", "2.0.2")
 }
 
 repositories {
@@ -25,44 +9,6 @@ repositories {
 }
 
 dependencies {
-
-    // spring
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-validation'
-    implementation 'org.springframework:spring-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-
-
-    // db
-    runtimeOnly 'org.postgresql:postgresql'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-
-    // utils
-    compileOnly "org.jetbrains:annotations:${jetbrainsAnnotationsVersion}"
-    implementation "org.apache.commons:commons-lang3:${apacheCommonsLangVersion}"
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${openApiUiVersion}"
-
-    // mapper
-    implementation "org.mapstruct:mapstruct:${mapstructVersion}"
-
-    // lombok
-    compileOnly 'org.projectlombok:lombok'
-
-    // monitoring
-//    runtimeOnly 'io.micrometer:micrometer-registry-prometheus'
-
-    // tests
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation "org.mockito:mockito-inline:${mockitoInlineVersion}"
-    testCompileOnly "org.projectlombok:lombok"
-    testAnnotationProcessor "org.projectlombok:lombok"
-
-    // annotation processor
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    annotationProcessor 'org.projectlombok:lombok'
-    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructVersion}"
-
 
 }
 
