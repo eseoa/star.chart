@@ -23,7 +23,7 @@ public class Image {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
-    private Long fromUserId;
+    private boolean main;
 
 
 }
