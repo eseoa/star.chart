@@ -12,7 +12,7 @@ services:
     build:
       dockerfile: Dockerfile
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
       - postgres
       - pgadmin
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./pgadmin:/var/lib/pgadmin
     ports:
-      - "5050:80"
+      - "5050:5050"
     depends_on:
       - postgres
 
@@ -42,6 +42,4 @@ services:
       POSTGRES_PASSWORD: admin
     ports:
       - "5432:5432"
-#    volumes:
-#      - ./sql/startup.sql:/docker-entrypoint-initdb.d/startup.sql
 

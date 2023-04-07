@@ -1,5 +1,4 @@
 plugins {
-    id 'pmd'
     id 'java'
     id 'org.openapi.generator' version '6.2.1'
     id 'org.springframework.boot' version '3.0.4'
@@ -31,6 +30,11 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework:spring-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //spring-security
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
 
 
     // db
